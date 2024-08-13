@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marketplace/ui/screens/cart_screen.dart';
+import 'package:go_router/go_router.dart';
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({super.key});
@@ -50,7 +50,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
         toolbarHeight: 50,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.go('/cart');
+            },
             icon: const Icon(CupertinoIcons.cart),
           ),
           IconButton(
@@ -74,11 +76,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(context, CupertinoPageRoute(
-                  builder: (context) {
-                    return const CartScreen();
-                  },
-                ));
+                context.go('/cart');
               },
               child: Image.asset("assets/images/details_information.png"),
             ),
@@ -107,11 +105,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
                   return GestureDetector(
                     onTap: () {
-                      Navigator.push(context, CupertinoPageRoute(
-                        builder: (context) {
-                          return const DetailsScreen();
-                        },
-                      ));
+                      context.go('/details');
                     },
                     child: Container(
                       width: 140.w,

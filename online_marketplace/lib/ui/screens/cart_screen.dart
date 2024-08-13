@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marketplace/ui/screens/home_screen.dart';
+import 'package:go_router/go_router.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -23,11 +22,8 @@ class _CartScreenState extends State<CartScreen> {
             TextButton(
               child: const Text('OK'),
               onPressed: () {
-                Navigator.push(context, CupertinoPageRoute(
-                  builder: (context) {
-                    return HomeScreen();
-                  },
-                ));
+                Navigator.of(context).pop();
+                context.go('/home');
               },
             ),
           ],

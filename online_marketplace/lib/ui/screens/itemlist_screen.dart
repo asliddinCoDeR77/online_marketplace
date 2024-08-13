@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marketplace/ui/screens/details_screen.dart';
 
 class ItemlistScreen extends StatefulWidget {
   const ItemlistScreen({super.key});
@@ -18,7 +18,7 @@ class _ItemlistScreenState extends State<ItemlistScreen> {
     "Phones",
     "Ipads",
     "Ipod",
-    "Jackaets",
+    "Jackets",
     "Phones",
   ];
 
@@ -80,11 +80,7 @@ class _ItemlistScreenState extends State<ItemlistScreen> {
               padding: const EdgeInsets.all(10),
               child: TextFormField(
                 onTap: () {
-                  Navigator.push(context, CupertinoPageRoute(
-                    builder: (context) {
-                      return const ItemlistScreen();
-                    },
-                  ));
+                  context.go('/itemlist'); // Navigate using GoRouter
                 },
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(10),
@@ -158,11 +154,7 @@ class _ItemlistScreenState extends State<ItemlistScreen> {
 
                   return GestureDetector(
                     onTap: () {
-                      Navigator.push(context, CupertinoPageRoute(
-                        builder: (context) {
-                          return const DetailsScreen();
-                        },
-                      ));
+                      context.go('/details');
                     },
                     child: Container(
                       width: 140.w,
@@ -201,8 +193,6 @@ class _ItemlistScreenState extends State<ItemlistScreen> {
               ),
             ),
             const Gap(30),
-          
-          
           ],
         ),
       ),

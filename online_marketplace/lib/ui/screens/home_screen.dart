@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marketplace/ui/screens/itemlist_screen.dart';
+import 'package:go_router/go_router.dart';
 import 'package:marketplace/ui/widgets/custom_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,8 +13,8 @@ class HomeScreen extends StatelessWidget {
   final List<String> categories = [
     "All category",
     "Gadgets",
-    "Clocthes",
-    "Access",
+    "Clothes",
+    "Accessories",
     "Watches",
     "Phones",
   ];
@@ -85,7 +85,6 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-      
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,11 +93,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: TextFormField(
                 onTap: () {
-                  Navigator.push(context, CupertinoPageRoute(
-                    builder: (context) {
-                      return const ItemlistScreen();
-                    },
-                  ));
+                  context.go('/itemlist');
                 },
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(10),
@@ -160,7 +155,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Latest tranding",
+                      "Latest trending",
                       style: GoogleFonts.inter(
                         fontSize: 18,
                       ),
@@ -207,7 +202,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Electronic equipments",
+                        "Electronic equipment",
                         style: GoogleFonts.inter(
                           fontSize: 13,
                         ),
@@ -427,8 +422,6 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-          
-          
             Container(
               width: size,
               height: 50,
