@@ -2,11 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DetailsScreen extends StatefulWidget {
-  const DetailsScreen({super.key});
+  final String imageUrl;
+  final String productName;
+  final String discount;
+
+  const DetailsScreen({
+    super.key,
+    required this.imageUrl,
+    required this.productName,
+    required this.discount,
+  });
 
   @override
   State<DetailsScreen> createState() => _DetailsScreenState();
@@ -68,12 +77,34 @@ class _DetailsScreenState extends State<DetailsScreen> {
             Container(
               width: size,
               height: 305.h,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/bag.png"),
+                  image: AssetImage(widget.imageUrl),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                widget.productName,
+                style: GoogleFonts.inter(
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                widget.discount,
+                style: GoogleFonts.inter(
+                  fontSize: 20.sp,
+                  color: Colors.red,
+                ),
+              ),
+            ),
+            Gap(10.h),
             GestureDetector(
               onTap: () {
                 context.go('/cart');
@@ -105,7 +136,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
                   return GestureDetector(
                     onTap: () {
-                      context.go('/details');
+                      context.go(
+                        '/details',
+                        extra: {
+                          "imageUrl": item["image"],
+                          "productName": item["name"],
+                          "discount": item["discount"],
+                        },
+                      );
                     },
                     child: Container(
                       width: 140.w,

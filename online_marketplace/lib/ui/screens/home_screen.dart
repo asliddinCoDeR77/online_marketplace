@@ -92,9 +92,7 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(10),
               child: TextFormField(
-                onTap: () {
-                  context.go('/itemlist');
-                },
+                onTap: () {},
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(10),
                   hintText: "Search",
@@ -240,36 +238,48 @@ class HomeScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final item = items[index];
 
-                  return Container(
-                    width: 140.w,
-                    height: 180.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey[300]!),
-                      color: Colors.white,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 76.w,
-                          height: 83.h,
-                          child: Image.asset(item["image"].toString()),
-                        ),
-                        Text(item["name"]!),
-                        Gap(5.h),
-                        Card(
-                          color: const Color(0xffFFE3E3),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 10,
-                              right: 10,
-                              top: 2,
-                              bottom: 2,
-                            ),
-                            child: Text(item["discount"]!),
+                  return GestureDetector(
+                    onTap: () {
+                      context.go(
+                        '/details',
+                        extra: {
+                          "imageUrl": item["image"]!,
+                          "productName": item["name"]!,
+                          "discount": item["discount"]!,
+                        },
+                      );
+                    },
+                    child: Container(
+                      width: 140.w,
+                      height: 180.h,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey[300]!),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 76.w,
+                            height: 83.h,
+                            child: Image.asset(item["image"].toString()),
                           ),
-                        ),
-                      ],
+                          Text(item["name"]!),
+                          Gap(5.h),
+                          Card(
+                            color: const Color(0xffFFE3E3),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                left: 10,
+                                right: 10,
+                                top: 2,
+                                bottom: 2,
+                              ),
+                              child: Text(item["discount"]!),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -293,36 +303,48 @@ class HomeScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final item = items[index];
 
-                  return Container(
-                    width: 140.w,
-                    height: 180.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey[300]!),
-                      color: Colors.white,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 76.w,
-                          height: 83.h,
-                          child: Image.asset(item["image"].toString()),
-                        ),
-                        Text(item["name"]!),
-                        Gap(5.h),
-                        Card(
-                          color: const Color(0xffFFE3E3),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 10,
-                              right: 10,
-                              top: 2,
-                              bottom: 2,
-                            ),
-                            child: Text(item["discount"]!),
+                  return GestureDetector(
+                    onTap: () {
+                      context.go(
+                        '/details',
+                        extra: {
+                          "imageUrl": item["image"]!,
+                          "productName": item["name"]!,
+                          "discount": item["discount"]!,
+                        },
+                      );
+                    },
+                    child: Container(
+                      width: 140.w,
+                      height: 180.h,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey[300]!),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 76.w,
+                            height: 83.h,
+                            child: Image.asset(item["image"].toString()),
                           ),
-                        ),
-                      ],
+                          Text(item["name"]!),
+                          Gap(5.h),
+                          Card(
+                            color: const Color(0xffFFE3E3),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                left: 10,
+                                right: 10,
+                                top: 2,
+                                bottom: 2,
+                              ),
+                              child: Text(item["discount"]!),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -387,69 +409,51 @@ class HomeScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final item = items[index];
 
-                  return Container(
-                    width: 140.w,
-                    height: 180.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey[300]!),
-                      color: Colors.white,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          width: 76.w,
-                          height: 83.h,
-                          child: Image.asset(item["image"].toString()),
-                        ),
-                        Text(item["name"]!),
-                        Gap(5.h),
-                        Card(
-                          color: const Color(0xffFFE3E3),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 10,
-                              right: 10,
-                              top: 2,
-                              bottom: 2,
-                            ),
-                            child: Text(item["discount"]!),
+                  return GestureDetector(
+                    onTap: () {
+                      context.go(
+                        '/details',
+                        extra: {
+                          "imageUrl": item["image"]!,
+                          "productName": item["name"]!,
+                          "discount": item["discount"]!,
+                        },
+                      );
+                    },
+                    child: Container(
+                      width: 140.w,
+                      height: 180.h,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey[300]!),
+                        color: Colors.white,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: 76.w,
+                            height: 83.h,
+                            child: Image.asset(item["image"].toString()),
                           ),
-                        ),
-                      ],
+                          Text(item["name"]!),
+                          Gap(5.h),
+                          Card(
+                            color: const Color(0xffFFE3E3),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                left: 10,
+                                right: 10,
+                                top: 2,
+                                bottom: 2,
+                              ),
+                              child: Text(item["discount"]!),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
-              ),
-            ),
-            Container(
-              width: size,
-              height: 50,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey[300]!,
-                ),
-                color: Colors.white,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Text(
-                      "Source now",
-                      style: GoogleFonts.inter(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                        color: const Color(0xff0D6EFD),
-                      ),
-                    ),
-                    Gap(5.w),
-                    const Icon(
-                      Icons.arrow_forward_outlined,
-                      color: Color(0xff0D6EFD),
-                    ),
-                  ],
-                ),
               ),
             ),
             Gap(10.h),

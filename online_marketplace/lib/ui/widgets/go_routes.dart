@@ -14,7 +14,11 @@ class AppRouter {
       ),
       GoRoute(
         path: '/details',
-        builder: (context, state) => DetailsScreen(),
+        builder: (context, state) => DetailsScreen(
+          imageUrl: '',
+          productName: '',
+          discount: '',
+        ),
       ),
       GoRoute(
         path: '/home',
